@@ -1,7 +1,9 @@
-## Balle Tech Node.js
+## Desafio 2 e 3
 
-Desafios da tecnologia da semana de Node.js.
-
-- [Desafio 1](https://example.com/desafio-1)
-- [Desafio 2](https://example.com/desafio-2)
-- [Desafio 3](https://example.com/desafio-3)
+| Rota       | Método | Descrição                |
+| ---------- | ------ | ------------------------ |
+| /users     | GET    | Lista todos os usuários  |
+| /users/:id | GET    | Busca um usuário pelo ID |
+| /users     | POST   | Cria um novo usuário     |
+| /users/:id | PUT    | Atualiza um usuário      |
+| /users/:id | DELETE | Deleta um usuário        |
