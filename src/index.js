@@ -1,9 +1,31 @@
-import 'dotenv/config';
+const inquirer = require('inquirer');
+const emojis = require('./emojis');
 
-import { app } from './app.js';
+function randomBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
-const PORT = process.env.PORT || 4000;
+function randomEmoji() {
+  return emojis[randomBetween(0, emojis.length - 1)];
+}
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on http://localhost:${PORT}`);
-});
+function randomEmojiPassword(length = 12) {
+  return Array.from({ length }, () => randomEmoji()).join('');
+}
+
+inquirer
+  .prompt([
+    {
+      type: 'number',
+      name: 'length',
+      message: 'Qual o tamanho da senha?',
+    },
+  ])
+  .then((answers) => {
+    const { length } = answers;
+
+    console.log('Sua nova senha é:', randomEmojiPassword(length));
+  })
+  .catch((error) => {
+    console.log(error);
+  });
